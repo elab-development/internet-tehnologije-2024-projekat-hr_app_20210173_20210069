@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'department',
+        'position'
     ];
 
     /**
@@ -41,8 +43,24 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function requests()
+    {
+        return $this->hasMany(Request::class);
+    }
+
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class);
+    }
+
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class, 'employee_project')
+                    ->withPivot('role', 'assigned_at')
+                    ->withTimestamps();
     }
 }
