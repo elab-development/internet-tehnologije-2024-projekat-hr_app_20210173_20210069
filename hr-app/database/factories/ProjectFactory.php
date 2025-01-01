@@ -11,11 +11,15 @@ class ProjectFactory extends Factory
 
     public function definition()
     {
+        $startDate = $this->faker->dateTimeBetween('2025-01-01', '2030-12-31')->format('Y-m-d');
+        $endDate = $this->faker->optional()->dateTimeBetween($startDate, '2035-12-31');
+        $endDate = $endDate ? $endDate->format('Y-m-d') : null;
+
         return [
             'name' => $this->faker->words(3, true),
             'description' => $this->faker->paragraph(),
-            'start_date' => $this->faker->date(),
-            'end_date' => $this->faker->optional()->date(),
+            'start_date' => $startDate,
+            'end_date' => $endDate,
             'status' => $this->faker->randomElement(['active', 'completed', 'cancelled']),
         ];
     }

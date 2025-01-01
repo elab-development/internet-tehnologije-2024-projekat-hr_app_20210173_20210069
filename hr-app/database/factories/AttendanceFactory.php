@@ -13,14 +13,18 @@ class AttendanceFactory extends Factory
 
     public function definition()
     {
+        $status = $this->faker->randomElement(['present', 'absent', 'on_leave']);
+        
         return [
             'user_id' => User::factory(),
             'project_id' => Project::factory(),
-            'date' => $this->faker->date(),
-            'status' => $this->faker->randomElement(['present', 'absent', 'on_leave']),
-            'hours_worked' => $this->faker->optional()->randomFloat(2, 0, 8),
-            'leave_type' => $this->faker->optional()->randomElement(['sick', 'vacation', 'other']),
-            'remarks' =>$this->faker->sentence()
+            'date' => $this->faker->dateTimeBetween('2025-01-01', '2030-12-31')->format('Y-m-d'), 
+            'status' => $status,
+            'hours_worked' => $this->faker->optional()->numberBetween(1, 8),
+            'leave_type' => $status === 'present' ? null : $this->faker->randomElement(['sick', 'vacation', 'other']),
+            'remarks' => $this->faker->sentence(),
         ];
     }
 }
+
+
