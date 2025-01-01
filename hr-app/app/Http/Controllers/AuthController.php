@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -18,7 +17,7 @@ class AuthController extends Controller
             'password' => 'required|string',
             'department' => 'nullable|string',
             'position' => 'nullable|string',
-            'user_role' => 'nullable|in:worker,hr worker', 
+            'user_role' => 'nullable|in:worker,hr worker',
         ]);
 
         $user = User::create([
@@ -27,15 +26,13 @@ class AuthController extends Controller
             'password' => Hash::make($validated['password']),
             'department' => $validated['department'] ?? 'General',
             'position' => $validated['position'] ?? 'Employee',
-            'user_role' => $validated['user_role'] ?? 'worker', 
+            'user_role' => $validated['user_role'] ?? 'worker',
         ]);
-
-        $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
             'message' => 'Registracija uspešna! Dobrodošli u aplikaciju! 🎉',
-            'user' => new UserResource($user),
-            'token' => $token,
+            'id' => $user->id,
+            'role' => $user->user_role,
         ], 201);
     }
 
@@ -55,10 +52,10 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
-            'message' => $user->user_role === 'hr worker'
-                ? "Prijava uspešna! Dobrodošli nazad, HR korisniče $user->name! 🏆"
-                : "Prijava uspešna! Dobrodošli, $user->name! 🎉",
-            'user' => new UserResource($user),
+            'message' => 'Welcome!',
+            'id' => $user->id,
+            'email' => $user->email,
+            'role' => $user->user_role,
             'token' => $token,
         ]);
     }
