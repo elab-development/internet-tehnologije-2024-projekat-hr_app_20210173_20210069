@@ -1,6 +1,8 @@
 <?php
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RequestController;
+use App\Http\Controllers\EmployeeProjectController;
+use App\Http\Controllers\AttendanceController;
 
 Route::post('/register', [AuthController::class, 'register']); 
 Route::post('/login', [AuthController::class, 'login']); 
@@ -24,6 +26,15 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Radnik rute
     Route::get('/employee-projects', [EmployeeProjectController::class, 'getEmployeeProjects']); 
+
+    // HR rute
+    Route::get('/attendances/metrics', [AttendanceController::class, 'topEmployeesByHours']); 
+
+    // Radnik rute
+    Route::get('/my-attendance', [AttendanceController::class, 'myAttendance']);
+    
+    // Resursne rute za Attendance
+    Route::resource('attendances', AttendanceController::class)->only(['index', 'store']);
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });
