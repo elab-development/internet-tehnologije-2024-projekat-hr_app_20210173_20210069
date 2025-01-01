@@ -15,7 +15,8 @@ class Attendance extends Model
         'date', 
         'status', 
         'hours_worked', 
-        'leave_type'
+        'leave_type',
+        'remarks'
     ];
 
     public function user()

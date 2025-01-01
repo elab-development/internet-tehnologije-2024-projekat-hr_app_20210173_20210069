@@ -8,7 +8,7 @@ class AddForeignKeysIntoTables extends Migration
 {
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('requests', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
 
@@ -26,7 +26,7 @@ class AddForeignKeysIntoTables extends Migration
     public function down()
     {
 
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('requests', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
             $table->dropColumn('user_id');
         });

@@ -12,6 +12,8 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,7 +24,8 @@ class User extends Authenticatable
         'email',
         'password',
         'department',
-        'position'
+        'position',
+        'user_role'
     ];
 
     /**
@@ -59,7 +62,7 @@ class User extends Authenticatable
 
     public function projects()
     {
-        return $this->belongsToMany(Project::class, 'employee_project')
+        return $this->belongsToMany(Project::class, 'employee_projects')
                     ->withPivot('role', 'assigned_at')
                     ->withTimestamps();
     }
