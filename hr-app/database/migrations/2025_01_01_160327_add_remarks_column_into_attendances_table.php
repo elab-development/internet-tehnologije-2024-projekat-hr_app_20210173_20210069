@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddRemarksToAttendancesTable extends Migration
+class AddRemarksColumnIntoAttendancesTable extends Migration
 {
     public function up()
     {

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeysToTables extends Migration
+class AddForeignKeysIntoTables extends Migration
 {
     public function up()
     {
@@ -17,7 +17,7 @@ class AddForeignKeysToTables extends Migration
             $table->foreignId('project_id')->nullable()->constrained()->onDelete('set null');
         });
 
-        Schema::table('employee_project', function (Blueprint $table) {
+        Schema::table('employee_projects', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('project_id')->constrained()->onDelete('cascade');
         });
@@ -38,7 +38,7 @@ class AddForeignKeysToTables extends Migration
             $table->dropColumn('project_id');
         });
 
-        Schema::table('employee_project', function (Blueprint $table) {
+        Schema::table('employee_projects', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
             $table->dropForeign(['project_id']);
             $table->dropColumn('user_id');
