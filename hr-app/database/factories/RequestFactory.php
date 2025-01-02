@@ -12,8 +12,8 @@ class RequestFactory extends Factory
 
     public function definition()
     {
-        $datesFrom = $this->faker->dateTimeBetween('2025-01-01', '2030-12-31')->format('Y-m-d');
-        $datesTo = $this->faker->dateTimeBetween($datesFrom, '2035-12-31')->format('Y-m-d');
+        $datesFrom = $this->faker->dateTimeBetween('2024-01-01', '2024-12-31')->format('Y-m-d');
+        $datesTo = $this->faker->dateTimeBetween($datesFrom, (new \DateTime($datesFrom))->modify('+35 days')->format('Y-m-d'))->format('Y-m-d');
 
         return [
             'user_id' => User::factory(),
@@ -24,5 +24,3 @@ class RequestFactory extends Factory
         ];
     }
 }
-
-
