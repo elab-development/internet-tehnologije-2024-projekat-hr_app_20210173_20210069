@@ -11,7 +11,7 @@ class CreateAttendancesTable extends Migration
             $table->id();
             $table->date('date');
             $table->enum('status', ['present', 'absent', 'on_leave'])->default('present');
-            $table->decimal('hours_worked', 5, 2)->nullable();
+            $table->integer('hours_worked')->nullable();
             $table->enum('leave_type', ['sick', 'vacation', 'other'])->nullable();
             $table->timestamps();
         });

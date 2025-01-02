@@ -11,9 +11,8 @@ class ProjectFactory extends Factory
 
     public function definition()
     {
-        $startDate = $this->faker->dateTimeBetween('2025-01-01', '2030-12-31')->format('Y-m-d');
-        $endDate = $this->faker->optional()->dateTimeBetween($startDate, '2035-12-31');
-        $endDate = $endDate ? $endDate->format('Y-m-d') : null;
+        $startDate = $this->faker->dateTimeBetween('2024-01-01', '2024-12-31')->format('Y-m-d'); // Datum početka u 2024.
+        $endDate = $this->faker->dateTimeBetween($startDate, '2024-12-31')->format('Y-m-d'); // Datum završetka u 2024.
 
         return [
             'name' => $this->faker->words(3, true),

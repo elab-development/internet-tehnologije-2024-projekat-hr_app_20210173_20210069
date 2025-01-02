@@ -12,7 +12,7 @@ class CreateProjectsTable extends Migration
             $table->string('name', 5);
             $table->text('description')->nullable();
             $table->date('start_date');
-            $table->date('end_date')->nullable();
+            $table->date('end_date');
             $table->enum('status', ['active', 'completed', 'cancelled'])->default('active');
             $table->timestamps();
         });
