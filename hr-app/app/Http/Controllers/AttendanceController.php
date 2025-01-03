@@ -60,7 +60,7 @@ class AttendanceController extends Controller
         ]);
 
         // Proverava da li radnik radi na izabranom projektu
-        $project = Auth::user()->projects()->where('id', $validated['project_id'])->exists();
+        $project = Auth::user()->projects()->where('projects.id', $validated['project_id'])->exists();
         if (!$project) {
             return response()->json(['error' => 'Ne možete prijaviti prisustvo za projekat na kojem ne radite!'], 403);
         }
