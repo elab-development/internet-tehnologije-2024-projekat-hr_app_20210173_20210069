@@ -7,6 +7,8 @@ import AuthLayout from '../Reusable/AuthLayout';
 import FormInput from '../Reusable/FormInput';
 import FormSelect from '../Reusable/FormSelect';
 
+import { Link } from 'react-router-dom';
+
 const RegisterPage = () => {
   const navigate = useNavigate();
 
@@ -21,10 +23,6 @@ const RegisterPage = () => {
 
   const [errors, setErrors] = useState({});
   const departments = ['HR', 'IT', 'Finance', 'Marketing', 'Operations', 'Legal', 'Support'];
-  const userRoles = [
-    { label: 'Worker', value: 'worker' },
-    { label: 'HR Worker', value: 'hr worker' },
-  ];
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -102,11 +100,14 @@ const RegisterPage = () => {
           name="user_role"
           value={form.user_role}
           onChange={handleChange}
-          options={['worker', 'hr_worker']}
+          options={['worker', 'hr worker']}
         />
         {errors.user_role && <p style={{ color: 'red' }}>{errors.user_role[0]}</p>}
 
         <button type="submit">Registruj se</button>
+        <div className="auth-link-wrapper">
+            <p>Imate nalog? <Link to="/login">Prijavite se</Link></p>
+        </div>
       </form>
     </AuthLayout>
   );

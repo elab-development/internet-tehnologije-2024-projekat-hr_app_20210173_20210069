@@ -167,6 +167,21 @@ label {
   }
 }
 
+.auth-link-wrapper {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.auth-link-wrapper a {
+  color: var(--color-pink-medium);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.auth-link-wrapper a:hover {
+  color: var(--color-purple-dark);
+}
 
 
 
