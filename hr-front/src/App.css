@@ -13,18 +13,21 @@
   --transition-speed: 0.3s;
 }
 
-/* RESET / BASE */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+
 body {
-  font-family: var(--font-main);
-  background-color: var(--color-light);
-  color: var(--color-purple-dark);
-  line-height: 1.7;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f6fa;
+  display: flex;           
+  justify-content: center;  
+  align-items: center;      
+  min-height: 100vh;       
+  overflow-x: hidden;       
 }
 
 /* HEADINGS */
@@ -81,14 +84,16 @@ button:hover {
 
 /* FORM ELEMENTS */
 input, select, textarea {
-  padding: 0.7rem;
   border-radius: var(--border-radius);
   border: 1px solid #ccc;
   width: 100%;
   font-family: var(--font-main);
-  margin-bottom: 1rem;
   transition: border 0.2s ease;
+  font-size: 15px;
+  margin-bottom: 5px;
+  padding: 8px;
 }
+
 input:focus, select:focus, textarea:focus {
   border-color: var(--color-accent);
   outline: none;
@@ -96,8 +101,9 @@ input:focus, select:focus, textarea:focus {
 
 label {
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 2px;
   font-weight: 500;
+  font-size: 15px;
 }
 
 /* CARDS */
@@ -109,27 +115,64 @@ label {
   margin-bottom: 1.8rem;
 }
 
-/* LAYOUT HELPERS */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
 
-.flex {
-  display: flex;
-  gap: 1rem;
-}
 
-.flex-between {
+.auth-container {
   display: flex;
-  justify-content: space-between;
+  gap: 40px; 
   align-items: center;
+  justify-content: center;
+  
 }
 
-/* TITLES */
-.section-title {
-  font-size: 2rem;
-  color: var(--color-accent);
-  margin-bottom: 1.5rem;
+.auth-form-side {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  width: 400px;        
+  padding: 20px 30px; 
 }
+
+.auth-form-wrapper {
+  width: 100%;
+}
+
+.auth-image-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-image-side img {
+  display: block;
+  width: 650px;    
+  height: auto;    
+  max-width: 100%; 
+  border-radius: 12px;
+}
+
+
+@media (max-width: 900px) {
+  .auth-container {
+    flex-direction: column;
+  }
+
+  .auth-image-side {
+    margin-top: 20px;
+  }
+
+  .auth-image-side img {
+    width: 90%; 
+    height: auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
