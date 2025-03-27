@@ -1,38 +1,135 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --color-light: #F5F5F5;
+  --color-pink-light: #F8E7F6;
+  --color-pink-medium: #DD88CF;
+  --color-purple-light: #9d409f;
+  --color-purple-dark: #762577;
+  --color-accent: #8156ac;
+
+  --font-main: 'Poppins', sans-serif;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* RESET / BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-light);
+  color: var(--color-purple-dark);
+  line-height: 1.7;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* HEADINGS */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: var(--color-purple-dark);
+}
+h2 {
+  font-size: 2.2rem;
+  color: var(--color-accent);
+}
+h3 {
+  font-size: 1.8rem;
+  color: var(--color-purple-light);
+}
+h4 {
+  font-size: 1.4rem;
+  color: var(--color-pink-medium);
+}
+
+/* LINKS */
+a {
+  text-decoration: none;
+  color: var(--color-accent);
+  transition: color var(--transition-speed);
+}
+a:hover {
+  color: var(--color-purple-dark);
+}
+
+/* BUTTONS */
+button {
+  background-color: var(--color-purple-light);
   color: white;
+  font-size: 1.1rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(157, 64, 159, 0.2);
+}
+button:hover {
+  background-color: var(--color-purple-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(118, 37, 119, 0.3);
 }
 
-.App-link {
-  color: #61dafb;
+/* FORM ELEMENTS */
+input, select, textarea {
+  padding: 0.7rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+  width: 100%;
+  font-family: var(--font-main);
+  margin-bottom: 1rem;
+  transition: border 0.2s ease;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--color-accent);
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+/* CARDS */
+.card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 1.8rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  margin-bottom: 1.8rem;
+}
+
+/* LAYOUT HELPERS */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* TITLES */
+.section-title {
+  font-size: 2rem;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
 }
