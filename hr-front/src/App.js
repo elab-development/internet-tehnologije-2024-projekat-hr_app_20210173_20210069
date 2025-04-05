@@ -11,9 +11,9 @@ import HrProjectsPage from './components/HrWorker/HrProjectsPage';
 import AttendancePage from './components/Worker/AttendancePage';
 import RequestsPage from './components/Worker/RequestsPage';
 import ProjectsPage from './components/Worker/ProjectsPage';
-import Footer from './components/Reusable/Footer';
 
 function App() {
+  //podaci koji je korisnik i token
   const [userData, setUserData] = useState({ user: null, token: null });
   const [loading, setLoading] = useState(true); 
 
@@ -26,6 +26,7 @@ function App() {
     setLoading(false); 
   }, []);
 
+  //provera da li je ulogovan i da li je hr
   const isAuthenticated = !!userData.user;
   const isHr = userData.user?.user_role === 'hr worker';
 

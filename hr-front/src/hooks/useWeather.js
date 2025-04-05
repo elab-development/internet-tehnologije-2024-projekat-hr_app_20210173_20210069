@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
+//kodovi za vreme, da bismo znali koju sliku da vratimo iz public foldera
 const weatherCodes = {
   0: { description: 'Sunčano', icon: '01d.png' },
   1: { description: 'Delimično suncano', icon: '02d.png' },
@@ -17,9 +19,11 @@ const useWeather = () => {
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
+    //koordinate u beogradu
     const latitude = 44.7866;
     const longitude = 20.4489;
 
+    //dohvatanje podataka o vremenu sa javnog apija - prosledjujemo koordinate, i sta nam sve treba
     const fetchWeather = async () => {
       try {
         const res = await axios.get(

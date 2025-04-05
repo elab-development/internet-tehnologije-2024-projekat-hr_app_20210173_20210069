@@ -5,6 +5,7 @@ import { FaHome } from "react-icons/fa";
 
 
 const Home = () => {
+  //koriscenje custom kuke i dohvatanje svih podataka koja ona ima
   const weather = useWeather(); 
 
   return (
