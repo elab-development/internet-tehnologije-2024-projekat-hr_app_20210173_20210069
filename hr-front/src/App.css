@@ -183,6 +183,100 @@ label {
   color: var(--color-purple-dark);
 }
 
+/* navigation */
+.navbar {
+  background-color: var(--color-pink-medium);
+  padding: 15px 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-purple-dark);
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--color-purple-dark);
+  transform: scale(1.05);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.navbar button {
+  border: none;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  gap: 24px;
+}
+
+
+/* metrics stranica za hr radnika */
+.hr-home {
+  margin-top: 80px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.chart-wrapper {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+
+}
+
+
+
+
+
+
+
+
+
 
 
 

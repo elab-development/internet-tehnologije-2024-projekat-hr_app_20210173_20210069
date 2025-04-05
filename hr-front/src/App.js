@@ -35,9 +35,29 @@ function App() {
           path="/home"
           element={isAuthenticated && !isHr ? <Home /> : <Navigate to="/" />}
         />
+        <Route
+          path="/projects"
+          element={isAuthenticated && !isHr ? <Home /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/requests"
+          element={isAuthenticated && !isHr ? <Home /> : <Navigate to="/" />}
+        />
+         <Route
+          path="/attendance"
+          element={isAuthenticated && !isHr ? <Home /> : <Navigate to="/" />}
+        />
 
         <Route
           path="/hr-home"
+          element={isAuthenticated && isHr ? <HrHome /> : <Navigate to="/" />}
+        />
+         <Route
+          path="/projects-employees"
+          element={isAuthenticated && isHr ? <HrHome /> : <Navigate to="/" />}
+        />
+         <Route
+          path="/manage-requests"
           element={isAuthenticated && isHr ? <HrHome /> : <Navigate to="/" />}
         />
 
