@@ -257,7 +257,7 @@ label {
 
 /* metrics stranica za hr radnika */
 .hr-home, .requests-container{
-  margin-top: 80px;
+  margin-top: 60px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -319,7 +319,7 @@ label {
   margin-bottom: 20px;
   height: 50px;
   min-width: 900px;
-  gap: 30px;
+  gap: 20px;
 }
 
 .requests-controls button {

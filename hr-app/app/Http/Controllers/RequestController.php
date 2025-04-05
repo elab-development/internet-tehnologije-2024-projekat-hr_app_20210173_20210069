@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Request as RequestModel; // Rename to avoid conflicts
+use App\Models\Request as RequestModel;
 use App\Http\Resources\RequestResource;
 use Illuminate\Support\Facades\Auth;
 
