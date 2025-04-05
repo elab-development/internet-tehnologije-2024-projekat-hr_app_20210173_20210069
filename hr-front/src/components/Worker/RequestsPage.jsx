@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Footer from '../Reusable/Footer';
 
 const RequestsPage = () => {
   const [requests, setRequests] = useState([]);
@@ -77,6 +78,7 @@ const RequestsPage = () => {
   };
 
   return (
+    <>
     <div className="requests-container">
       <h1>Moji Zahtevi za Odsustvo</h1>
       <h4>Novi Zahtev</h4>
@@ -103,6 +105,7 @@ const RequestsPage = () => {
         <button onClick={handleCreate}>Pošalji Zahtev</button>
       </div>
 
+      <h4>Moji zahtevi za odsustvo:</h4>
       <table className="requests-table">
         <thead>
           <tr>
@@ -162,6 +165,8 @@ const RequestsPage = () => {
         </div>
       )}
     </div>
+    <Footer/>
+    </>
   );
 };
 

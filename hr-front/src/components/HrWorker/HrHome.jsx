@@ -12,6 +12,7 @@ import {
   Label
 } from 'recharts';
 import { ImStatsBars } from "react-icons/im";
+import Footer from '../Reusable/Footer';
 
 
 const HrHome = () => {
@@ -57,6 +58,7 @@ const HrHome = () => {
   if (error) return <p style={{ color: 'red', textAlign: 'center', marginTop: '40px' }}>{error}</p>;
 
   return (
+    <>
     <div className="hr-home">
       <h1> <ImStatsBars/> Dashboard - Metrike Zaposlenih <ImStatsBars/> </h1>
 
@@ -130,6 +132,9 @@ const HrHome = () => {
         </div>
       </section>
     </div>
+    <Footer/>
+    </>
+
   );
 };
 

@@ -1,11 +1,16 @@
 import React from 'react';
 import useWeather from '../../hooks/useWeather';
+import Footer from '../Reusable/Footer';
+import { FaHome } from "react-icons/fa";
+
 
 const Home = () => {
   const weather = useWeather(); 
 
   return (
-    <div className="home">
+    <div className='home-page'>
+      <h1> <FaHome/> Početna <FaHome/> </h1>
+      <div className="home">
         <div className="home-section">
           <h1>Dobrodošli!</h1>
           <p>Vaš radni kutak za upravljanje zahtevima, prisustvom i projektima.</p>
@@ -47,6 +52,8 @@ const Home = () => {
           )}
         </div>
       
+    </div>
+    <Footer/>
     </div>
   );
 };

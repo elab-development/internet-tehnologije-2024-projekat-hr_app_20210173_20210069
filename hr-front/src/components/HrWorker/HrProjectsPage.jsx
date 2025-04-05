@@ -1,11 +1,15 @@
 import React from 'react';
+import Footer from '../Reusable/Footer';
 
 const HrProjectsPage = () => {
 
   return (
-    <div>
+    <>
+    <div className='hr-projects'>
         u izradi..
     </div>
+    <Footer/>
+    </>
   );
 };
 

@@ -11,6 +11,7 @@ import HrProjectsPage from './components/HrWorker/HrProjectsPage';
 import AttendancePage from './components/Worker/AttendancePage';
 import RequestsPage from './components/Worker/RequestsPage';
 import ProjectsPage from './components/Worker/ProjectsPage';
+import Footer from './components/Reusable/Footer';
 
 function App() {
   const [userData, setUserData] = useState({ user: null, token: null });
@@ -69,6 +70,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
+
   );
 }
 

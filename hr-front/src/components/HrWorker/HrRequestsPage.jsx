@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Footer from '../Reusable/Footer';
 
 const HrRequestsPage = () => {
   const [requests, setRequests] = useState([]);
@@ -78,6 +79,7 @@ const HrRequestsPage = () => {
    const goToPage = (pageNum) => setCurrentPage(pageNum);
 
   return (
+    <>
     <div className="requests-container">
       <h1>Upravljanje Odsustvima</h1>
 
@@ -163,6 +165,8 @@ const HrRequestsPage = () => {
         </div>
       )}
     </div>
+    <Footer/>
+    </>
   );
 };
 

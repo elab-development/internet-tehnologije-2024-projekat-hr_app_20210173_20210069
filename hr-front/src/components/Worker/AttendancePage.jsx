@@ -1,11 +1,15 @@
 import React from 'react';
+import Footer from '../Reusable/Footer';
 
 const AttendancePage = () => {
 
   return (
-    <div>
+    <>
+    <div className='attendance-page'>
         u izradi Prisustva..
     </div>
+    <Footer/>
+    </>
   );
 };
 
