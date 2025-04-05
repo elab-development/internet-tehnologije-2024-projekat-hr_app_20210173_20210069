@@ -33,7 +33,7 @@ body {
 /* HEADINGS */
 h1, h2, h3, h4 {
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: 10px;
 }
 
 h1 {
@@ -51,6 +51,12 @@ h3 {
 h4 {
   font-size: 1.4rem;
   color: var(--color-pink-medium);
+  margin-bottom: 2px;
+}
+
+h5 {
+  font-size: 15px;
+  color: var(--color-purple-light);
 }
 
 /* LINKS */
@@ -249,9 +255,8 @@ label {
   gap: 24px;
 }
 
-
 /* metrics stranica za hr radnika */
-.hr-home {
+.hr-home{
   margin-top: 80px;
   padding: 20px;
   display: flex;
@@ -268,6 +273,53 @@ label {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
 
 }
+.home{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-evenly;
+  margin-top: 120px;
+}
+
+.home-section {
+  background-color: var(--color-pink-light);
+  border-radius: 12px;
+  height: 550px;
+  width: 700px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 40px;
+  margin:15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.home-image {
+  margin-top: 20px;
+  max-width: 700px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.weather-icon-image {
+  width: 250px;
+  height: 250px;
+}
+
+.weather-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px 10px;
+  margin-top: 15px;
+}
+
+.weather-info p {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: #333;
+}
+
+
 
 
 
