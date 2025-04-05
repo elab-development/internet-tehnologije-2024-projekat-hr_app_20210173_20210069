@@ -6,6 +6,11 @@ import HrHome from './components/HrWorker/HrHome';
 import Home from './components/Worker/Home';
 import './App.css'; 
 import Navigation from './components/Reusable/Navigation';
+import HrRequestsPage from './components/HrWorker/HrRequestsPage';
+import HrProjectsPage from './components/HrWorker/HrProjectsPage';
+import AttendancePage from './components/Worker/AttendancePage';
+import RequestsPage from './components/Worker/RequestsPage';
+import ProjectsPage from './components/Worker/ProjectsPage';
 
 function App() {
   const [userData, setUserData] = useState({ user: null, token: null });
@@ -37,15 +42,15 @@ function App() {
         />
         <Route
           path="/projects"
-          element={isAuthenticated && !isHr ? <Home /> : <Navigate to="/" />}
+          element={isAuthenticated && !isHr ? <ProjectsPage /> : <Navigate to="/" />}
         />
         <Route
           path="/requests"
-          element={isAuthenticated && !isHr ? <Home /> : <Navigate to="/" />}
+          element={isAuthenticated && !isHr ? <RequestsPage /> : <Navigate to="/" />}
         />
          <Route
           path="/attendance"
-          element={isAuthenticated && !isHr ? <Home /> : <Navigate to="/" />}
+          element={isAuthenticated && !isHr ? <AttendancePage /> : <Navigate to="/" />}
         />
 
         <Route
@@ -54,11 +59,11 @@ function App() {
         />
          <Route
           path="/projects-employees"
-          element={isAuthenticated && isHr ? <HrHome /> : <Navigate to="/" />}
+          element={isAuthenticated && isHr ? <HrProjectsPage/> : <Navigate to="/" />}
         />
          <Route
           path="/manage-requests"
-          element={isAuthenticated && isHr ? <HrHome /> : <Navigate to="/" />}
+          element={isAuthenticated && isHr ? <HrRequestsPage /> : <Navigate to="/" />}
         />
 
         <Route path="*" element={<Navigate to="/" />} />

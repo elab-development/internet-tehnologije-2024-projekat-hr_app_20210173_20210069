@@ -64,7 +64,7 @@ const HrHome = () => {
       <section className="chart-section">
         <h2 className="chart-title">Broj Projekata po Zaposlenom</h2>
         <div className="chart-wrapper">
-          <ResponsiveContainer width="100%" height={500}>
+          <ResponsiveContainer width="100%" minWidth={800} height={500}>
             <BarChart
               data={metrics}
               margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
@@ -99,7 +99,7 @@ const HrHome = () => {
       <section className="chart-section">
         <h2 className="chart-title">Top 10 Zaposlenih po Broju Radnih Sati</h2>
         <div className="chart-wrapper">
-          <ResponsiveContainer width="100%" height={500}>
+          <ResponsiveContainer width="100%" height={500} minWidth={800}>
             <BarChart
               data={hoursMetrics}
               margin={{ top: 20, right: 30, left: 20, bottom: 80 }}

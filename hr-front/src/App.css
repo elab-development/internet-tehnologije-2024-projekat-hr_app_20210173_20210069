@@ -256,7 +256,7 @@ label {
 }
 
 /* metrics stranica za hr radnika */
-.hr-home{
+.hr-home, .requests-container{
   margin-top: 80px;
   padding: 20px;
   display: flex;
@@ -313,11 +313,89 @@ label {
   margin-top: 15px;
 }
 
-.weather-info p {
-  margin: 2px 0 0;
-  font-size: 14px;
-  color: #333;
+.requests-controls {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  height: 50px;
+  min-width: 900px;
+  gap: 30px;
 }
+
+.requests-controls button {
+  min-width: 220px;
+}
+
+.requests-table button, .modal-overlay button, .pagination button {
+  margin-left: 7px;
+}
+
+.requests-table {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.requests-table th, .requests-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.requests-table th {
+  background-color: var(--color-pink-medium);
+  color: white;
+}
+
+.status.accepted {
+  color: green;
+  font-weight: bold;
+}
+
+.status.declined {
+  color: red;
+  font-weight: bold;
+}
+
+.status.sent {
+  color: orange;
+  font-weight: bold;
+}
+
+/* Modal styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+
+.modal select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+
+
+
 
 
 
