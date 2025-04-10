@@ -48,7 +48,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <AuthLayout imageUrl="/images/auth2.png">
+    <AuthLayout imageUrl="/images/auth.png">
       <form onSubmit={handleSubmit}>
         <h2>Registracija</h2>
 
