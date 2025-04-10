@@ -17,8 +17,13 @@ const Footer = () => {
   const path = location.pathname;
 
   const user = JSON.parse(sessionStorage.getItem('user'));
+  // logicki operatori poredjenja: == i ===
+  // == nestriktno poredjenje --> 1 i "1" su isto, dakle zanemaruje tip, radi kastovanje(iz Number u String i obrnuto)
+  // === striktno poredjenje --> 1 i "1" razlicito, tipovi se uzimaju u obzir, String i Number nisu isto
   const isHr = user?.user_role === 'hr worker';
 
+  // sintaksa uslov ? opcija za tacno : opcija za netacno
+  // OVO JE TERNARNI OPERATOR
   const basePath = isHr ? '/hr-home' : '/home';
   const baseLabel = isHr ? 'HR Početna' : 'Početna';
 
