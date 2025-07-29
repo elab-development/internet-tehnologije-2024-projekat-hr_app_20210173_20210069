@@ -30,6 +30,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // Radnik rute
     Route::get('/employee-projects', [EmployeeProjectController::class, 'getEmployeeProjects']); 
 
+    //Ruta za sve ulogovane
     Route::get('/all-employee-projects', [EmployeeProjectController::class, 'index']);
 
     // HR rute
@@ -41,12 +42,14 @@ Route::middleware('auth:sanctum')->group(function () {
     // Resursne rute za Attendance
     Route::resource('attendances', AttendanceController::class)->only(['index', 'store']);
 
+    //Rute za sve ulogovane
     Route::get('/projects', [ProjectController::class, 'index']);
     Route::get('/users',    [UserController::class,  'index']);
 
     // za izmenu projekta
     Route::patch('/projects/{project}', [ProjectController::class, 'update']);
 
+    //Ruta samo za HR radnika
     Route::delete('/employee-projects/{id}', [EmployeeProjectController::class, 'destroy']);
 
     Route::post('/logout', [AuthController::class, 'logout']);
