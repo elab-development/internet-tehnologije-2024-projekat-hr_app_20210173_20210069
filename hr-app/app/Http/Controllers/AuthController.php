@@ -55,6 +55,7 @@ class AuthController extends Controller
             'message' => 'Welcome!',
             'id' => $user->id,
             'email' => $user->email,
+            'name' => $user->name,
             'role' => $user->user_role,
             'token' => $token,
         ]);

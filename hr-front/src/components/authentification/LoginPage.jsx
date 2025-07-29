@@ -34,6 +34,7 @@ const LoginPage = ({ setUser }) => {
   
       const user = {
         id: res.data.id,
+        name: res.data.name,
         email: res.data.email,
         user_role: res.data.role,
       };
