@@ -49,8 +49,9 @@ Route::middleware('auth:sanctum')->group(function () {
     // za izmenu projekta
     Route::patch('/projects/{project}', [ProjectController::class, 'update']);
 
-    //Ruta samo za HR radnika
+    //Rute samo za HR radnika
     Route::delete('/employee-projects/{id}', [EmployeeProjectController::class, 'destroy']);
+    Route::get('/employee-projects/export', [EmployeeProjectController::class, 'exportCsv']);
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });

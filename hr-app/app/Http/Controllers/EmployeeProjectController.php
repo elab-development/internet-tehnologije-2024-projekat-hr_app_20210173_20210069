@@ -78,4 +78,58 @@ class EmployeeProjectController extends Controller
 
         return response()->json($metrics);
     }
+
+    /**
+     * Export svih zapisa iz employee_projects u CSV formatu.
+    */
+    public function exportCsv()
+    {
+        if (Auth::user()->user_role !== 'hr worker') {
+            return response()->json(['error' => 'Samo HR može eksportovati podatke!'], 403);
+        }
+
+        $fileName = 'employee_projects_' . date('Ymd_His') . '.csv';
+        $headers = [
+            'Content-Type'        => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => "attachment; filename=\"$fileName\"",
+        ];
+
+        $callback = function() {
+            $handle = fopen('php://output', 'w');
+
+            // zaglavlje
+            fputcsv($handle, [
+                'id',
+                'user_name',
+                'project_name',
+                'role'
+            ]);
+
+            // formatiramo created_at u string
+            $rows = DB::table('employee_projects')
+                ->join('users',    'employee_projects.user_id',    '=', 'users.id')
+                ->join('projects', 'employee_projects.project_id', '=', 'projects.id')
+                ->select([
+                    'employee_projects.id',
+                    'users.name as user_name',
+                    'projects.name as project_name',
+                    'employee_projects.role'
+                ])
+                ->get();
+
+            foreach ($rows as $row) {
+                fputcsv($handle, [
+                    $row->id,
+                    $row->user_name,
+                    $row->project_name,
+                    $row->role
+                ]);
+            }
+
+            fclose($handle);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
+
 }

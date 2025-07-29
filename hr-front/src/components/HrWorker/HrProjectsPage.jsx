@@ -25,7 +25,7 @@ export default function HrProjectsPage() {
   const [editStatus, setEditStatus] = useState('');
   const [editDate,   setEditDate]   = useState('');
 
-  // helper to reload pivot table
+  // Helper to reload pivot table
   const fetchAssignments = () => {
     fetch(`${API_BASE}/all-employee-projects`, { headers: authHeaders })
       .then(r => r.json())
@@ -43,8 +43,7 @@ export default function HrProjectsPage() {
       .then(r => r.json())
       .then(json =>
         setEmployees(
-          (Array.isArray(json) ? json : json.data ?? [])
-            .filter(u => u.user_role !== 'hr worker')
+          (Array.isArray(json) ? json : json.data ?? []).filter(u => u.user_role !== 'hr worker')
         )
       )
       .catch(console.error);
@@ -76,7 +75,7 @@ export default function HrProjectsPage() {
     }
   };
 
-  const deleteAssignment = async (id) => {
+  const deleteAssignment = async id => {
     if (!window.confirm('Obrisati ovo angažovanje?')) return;
     setLoading(true);
     try {
@@ -126,6 +125,29 @@ export default function HrProjectsPage() {
     }
   };
 
+  const exportCsv = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch(`${API_BASE}/employee-projects/export`, {
+        method: 'GET',
+        headers: authHeaders
+      });
+      if (!res.ok) throw new Error();
+      const blob = await res.blob();
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href     = url;
+      a.download = 'employee_projects.csv';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    } catch {
+      alert('Greška pri eksportu CSV.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="hrp-page">
       <h1 style={{ textAlign: 'center', margin: '20px 0', color: '#762577' }}>
@@ -151,13 +173,21 @@ export default function HrProjectsPage() {
         >
           Izmeni podatke projekta
         </button>
+        <button
+          className="hrp-assign-btn"
+          onClick={exportCsv}
+          disabled={loading}
+          style={{ background: '#34D399' }}
+        >
+          {loading ? '...' : 'Eksport CSV'}
+        </button>
       </div>
 
       <div
         className="hrp-double-table-container"
         style={{ margin: '0 70px', display: 'flex', gap: '1rem' }}
       >
-        {/* Projekti */}  
+        {/* Projekti */}
         <div className="hrp-table-container" style={{ flex: 2 }}>
           <h2>Projekti</h2>
           <div className="hrp-table-wrapper" style={{ overflowX: 'auto' }}>
@@ -263,8 +293,8 @@ export default function HrProjectsPage() {
                 return (
                   <tr key={a.id}>
                     <td style={{ padding: '8px', whiteSpace: 'nowrap' }}>{a.id}</td>
-                    <td style={{ padding: '8px', whiteSpace: 'nowrap' }}>{proj?.name  || '—'}</td>
-                    <td style={{ padding: '8px', whiteSpace: 'nowrap' }}>{emp?.name   || '—'}</td>
+                    <td style={{ padding: '8px', whiteSpace: 'nowrap' }}>{proj?.name || '—'}</td>
+                    <td style={{ padding: '8px', whiteSpace: 'nowrap' }}>{emp?.name || '—'}</td>
                     <td style={{ padding: '8px', whiteSpace: 'nowrap' }}>
                       {new Date(a.created_at).toLocaleString()}
                     </td>
