@@ -18,6 +18,9 @@ class EmployeeProjectController extends Controller
 
     public function destroy($id)
     {
+        if (Auth::user()->user_role !== 'hr worker') {
+            return response()->json(['error' => 'Samo HR može bristi angazovanje!'], 403);
+        }
         DB::table('employee_projects')->where('id', $id)->delete();
         return response()->json(['message' => 'Angažovanje obrisano.']);
     }
