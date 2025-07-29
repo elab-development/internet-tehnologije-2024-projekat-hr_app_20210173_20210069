@@ -10,6 +10,18 @@ use Illuminate\Support\Facades\DB;
 
 class EmployeeProjectController extends Controller
 {
+    public function index()
+    {
+        $rows = DB::table('employee_projects')->get();
+        return response()->json($rows);
+    }
+
+    public function destroy($id)
+    {
+        DB::table('employee_projects')->where('id', $id)->delete();
+        return response()->json(['message' => 'Angažovanje obrisano.']);
+    }
+
     // HR radnik dodeljuje radnika na projekat
     public function assignEmployeeToProject(Request $request)
     {
