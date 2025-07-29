@@ -443,6 +443,54 @@ label {
   text-decoration: underline;
 }
 
+/* ====== HR PAGE ONLY: FINAL TABLE LAYOUT ====== */
+
+.hrp-page .hrp-double-table-container {
+  /* 2 kolone: projekti (šira) i zaposleni (uže) */
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.hrp-page .hrp-table-wrapper {
+  /* horizontalni scroll SAMO unutar tabele */
+  overflow-x: auto;
+}
+
+.hrp-page .hrp-select-table {
+  width: 100% !important;
+  border-collapse: collapse;
+  table-layout: auto; /* auto dozvoljava da se kolone prilagode */
+}
+
+.hrp-page .hrp-select-table th,
+.hrp-page .hrp-select-table td {
+  padding: 0.75rem;
+  border-top: 1px solid #e5e7eb;
+  text-align: left;
+  word-break: break-word;  /* prelomi dugačke reči */
+  white-space: normal;     /* dozvoli wrap teksta */
+}
+
+.hrp-page .hrp-select-table thead {
+  background: #f3f4f6;
+}
+
+.hrp-page .hrp-select-table tr:hover td {
+  background: #f9fafb;
+}
+
+.hrp-page .hrp-select-table td:first-child {
+  width: 30px;            /* za radio dugme */
+  text-align: center;
+}
+
+.hrp-page .hrp-table-container h2 {
+  margin-bottom: 0.5rem;
+}
+
+
 
 
 
