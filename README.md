@@ -84,7 +84,7 @@ Instalacija i pokretanje
 
 1. Klonirajte repozitorijum:
 ```bash
-    git clone https://github.com/elab-development/internet-tehnologije-2024-projekat-photo_services_2021_0382.git
+    git clone https://github.com/elab-development/internet-tehnologije-2024-projekat-hr_app_20210173_20210069.git
 ```
 2. Pokrenite backend:
 ```bash
